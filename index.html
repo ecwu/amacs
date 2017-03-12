@@ -1,0 +1,236 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+    <meta charset="UTF-8">  
+    <title>AQ CHAT </title>  
+    <style>  
+  /** 重置标签默认样式 */   
+        * {   
+            margin: 0;   
+            padding: 0;   
+            list-style: none;   
+            font-family: '微软雅黑'   
+        }   
+        #container {   
+            width: 450px;   
+            height: 780px;   
+            background: #eee;   
+            margin: 10px auto 0;   
+            position: relative;   
+            box-shadow: 20px 20px 55px #777;   
+        }   
+        .header {   
+            background: #000;   
+            height: 40px;   
+            color: #fff;   
+            line-height: 34px;   
+            font-size: 20px;   
+            padding: 0 10px;   
+        }   
+        .footer {   
+            width: 430px;   
+            height: 50px;   
+            background: #666;   
+            position: absolute;   
+            bottom: 0;   
+            padding: 10px;   
+        }   
+        .footer input {   
+            width: 275px;   
+            height: 45px;   
+            outline: none;   
+            font-size: 20px;   
+            text-indent: 10px;   
+            position: absolute;   
+            border-radius: 6px;   
+            right: 80px;   
+        }   
+        .footer span {   
+            display: inline-block;   
+            width: 62px;   
+            height: 48px;   
+            background: #ccc;   
+            font-weight: 900;   
+            line-height: 45px;   
+            cursor: pointer;   
+            text-align: center;   
+            position: absolute;   
+            right: 10px;   
+            border-radius: 6px;   
+        }   
+        .footer span:hover {   
+            color: #fff;   
+            background: #999;   
+        }   
+        #user_face_icon {   
+            display: inline-block;   
+            background: red;   
+            width: 60px;   
+            height: 60px;   
+            border-radius: 30px;   
+            position: absolute;   
+            bottom: 6px;   
+            left: 14px;   
+            cursor: pointer;   
+            overflow: hidden;   
+        }   
+        img {   
+            width: 60px;   
+            height: 60px;   
+        }   
+        .content {   
+            font-size: 20px;   
+            width: 435px;   
+            height: 662px;   
+            overflow: auto;   
+            padding: 5px;   
+        }   
+        .content li {   
+            margin-top: 10px;   
+            padding-left: 10px;   
+            width: 412px;   
+            display: block;   
+            clear: both;   
+            overflow: hidden;   
+        }   
+        .content li img {   
+            float: left;   
+        }   
+        .content li span{   
+            background: #7cfc00;   
+            padding: 10px;   
+            border-radius: 10px;   
+            float: left;   
+            margin: 6px 10px 0 10px;   
+            max-width: 310px;   
+            border: 1px solid #ccc;   
+            box-shadow: 0 0 3px #ccc;   
+        }   
+        .content li img.imgleft {    
+            float: left;    
+        }   
+        .content li img.imgright {    
+            float: right;    
+        }   
+        .content li span.spanleft {    
+            float: left;   
+            background: #fff;   
+        }   
+        .content li span.spanright {    
+            float: right;   
+            background: #7cfc00;   
+        }   
+        .btnn{
+            display: inline-block;
+        }
+    </style>  
+    <script>  
+        window.onload = function(){   
+            var arrIcon = ['1.png','2.png'];   
+            var num = 0; 
+            var iNow = -1;  
+            var icon = document.getElementById('user_face_icon').getElementsByTagName('img');   
+            var btn = document.getElementById('btn');   
+            var text = document.getElementById('text');   
+            var content = document.getElementsByTagName('ul')[0];   
+            var img = content.getElementsByTagName('img');   
+            var span = content.getElementsByTagName('span');   
+  
+            icon[0].onclick = function(){   
+                if(num==0){
+                    this.src = arrIcon[1];   
+                    num = 1;
+                }else if(num==1){   
+                    this.src = arrIcon[0];   
+                    num = 0;   
+                }                   
+            }   
+            btn.onclick = function(){   
+                if(text.value ==''){   
+                    alert("can't sent empty message.");   
+                }else {   
+                    content.innerHTML += '<li><img src="'+arrIcon[num]+'"><span>'+text.value+'</span></li>';   
+                    iNow++; 
+                    if(num==0){   
+                        img[iNow].className += 'imgright';   
+                        span[iNow].className += 'spanright';   
+                    }else {   
+                        img[iNow].className += 'imgleft';
+                        span[iNow].className += 'spanleft';
+                    }
+                    text.value = '';
+                    contentcontent.scrollTop=content.scrollHeight; 
+                }   
+            }
+            meizi1.onclick = function(){
+                var meizi = 'test1';//引号里面写要妹子要说的内容
+                content.innerHTML += '<li><img src="'+arrIcon[1]+'"><span>'+meizi+'</span></li>';
+                iNow++;
+                img[iNow].className += 'imgleft';
+                span[iNow].className += 'spanleft';
+                contentcontent.scrollTop=content.scrollHeight; 
+            }
+            meizi2.onclick = function(){
+                var meizi = 'test2';//引号里面写要妹子要说的内容
+                content.innerHTML += '<li><img src="'+arrIcon[1]+'"><span>'+meizi+'</span></li>';
+                iNow++;
+                img[iNow].className += 'imgleft';
+                span[iNow].className += 'spanleft';
+                contentcontent.scrollTop=content.scrollHeight; 
+            }
+            meizi3.onclick = function(){
+                var meizi = 'test3';//引号里面写要妹子要说的内容
+                content.innerHTML += '<li><img src="'+arrIcon[1]+'"><span>'+meizi+'</span></li>';
+                iNow++;
+                img[iNow].className += 'imgleft';
+                span[iNow].className += 'spanleft';
+                contentcontent.scrollTop=content.scrollHeight; 
+            }
+            meizi4.onclick = function(){
+                var meizi = 'test4';//引号里面写要妹子要说的内容
+                content.innerHTML += '<li><img src="'+arrIcon[1]+'"><span>'+meizi+'</span></li>';
+                iNow++;
+                img[iNow].className += 'imgleft';
+                span[iNow].className += 'spanleft';
+                contentcontent.scrollTop=content.scrollHeight; 
+            }
+        }
+    function hotKey(){
+    var e=event.srcElement;
+    if(event.keyCode==97 || event.keyCode==49){// Key Pad 1
+        meizi1.onclick();
+    }
+    if(event.keyCode==98 || event.keyCode==50){// Key Pad 2
+        meizi2.onclick();
+    }
+    if(event.keyCode==99 || event.keyCode==51){// Key Pad 3
+        meizi3.onclick();
+    }
+    if(event.keyCode==100 || event.keyCode==52){// Key Pad 4
+        meizi4.onclick();
+    }
+    }
+    </script>  
+</head>  
+<body onkeydown="hotKey()">  
+    <div id="container">  
+        <div class="header">  
+            <span style="float: left;"> ANDREW SIMULATOR </span>  
+            <span style="float: right;">14:21</span>  
+        </div>  
+        <ul class="content">
+  </ul>  
+        <div class="footer">  
+            <div id="user_face_icon">  
+                <img src="1.png" alt="">
+            </div>  
+            <input id="text" type="text" placeholder="Reply...">  
+            <span id="btn"> 发送 </span>  
+        </div>  
+    </div>  
+    <p id="meizi1" class="btnn"> 1 </p><!-- 这里的对话对应上面的函数 -->
+    <p id="meizi2" class="btnn"> 2 </p>
+    <p id="meizi3" class="btnn"> 3 </p>
+    <p id="meizi4" class="btnn"> 4 </p>
+</body>  
+</html>  
